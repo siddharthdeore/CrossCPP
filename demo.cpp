@@ -3,8 +3,9 @@
 
 using Eigen::MatrixXd;
 
-#include <boost/chrono.hpp>
-#include <iostream>
+#include <boost/lambda/lambda.hpp>
+#include <iterator>
+#include <algorithm>
 
 using namespace boost::chrono;
 
@@ -14,7 +15,7 @@ void BoostTest();
 int main()
 {
     EigneTest();
-    //BoostTest();
+    BoostTest();
     return 0;
 }
 
@@ -27,8 +28,17 @@ void EigneTest()
   m(1,1) = m(1,0) + m(0,1);
   std::cout << m << std::endl;
 }
+// Header only
+void BoostTest(){
+    using namespace boost::lambda;
+    typedef std::istream_iterator<int> in;
 
-void BoostTest()
+    std::for_each(
+        in(std::cin), in(), std::cout << (_1 * 3) << " " );
+}
+
+// Requires precompiled library
+void BoostTest2()
 {
   std::cout << system_clock::now() << '\n';
 #ifdef BOOST_CHRONO_HAS_CLOCK_STEADY
