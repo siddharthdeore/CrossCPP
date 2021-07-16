@@ -7,7 +7,6 @@ using Eigen::MatrixXd;
 #include <iterator>
 #include <algorithm>
 
-using namespace boost::chrono;
 
 void EigneTest();
 void BoostTest();
@@ -36,7 +35,7 @@ void BoostTest(){
     std::for_each(
         in(std::cin), in(), std::cout << (_1 * 3) << " " );
 }
-
+/*
 // Requires precompiled library
 void BoostTest2()
 {
@@ -57,3 +56,4 @@ void BoostTest2()
   std::cout << thread_clock::now() << '\n';
 #endif
 }
+*/
