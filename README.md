@@ -1,6 +1,7 @@
 # Cross C++
 Cross Platform C++ CMake toolchain Boilerplate Template with commonly used scientific libraries.
 
+[![Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer)
 ## Libraries
 - [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 - [Boost C++ Libraries](https://www.boost.org/)
