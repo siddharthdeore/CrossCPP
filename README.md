@@ -1,4 +1,4 @@
-# Cross CPP
+# Cross C++
 Cross Platform C++ CMake toolchain Boilerplate Template with commonly used scientific libraries.
 
 ## Libraries
