@@ -6,6 +6,11 @@ cmake_minimum_required (VERSION 3.14 FATAL_ERROR)
 
 set (PROJECT_NAME "Cross")
 project (${PROJECT_NAME})
+# Cmake otion to build examples / set off to skip
+option(BUILD_01_Eigen         "Build eigen library demo" ON)
+option(BUILD_02_Shared_Memory "Build boost header only library demo" ON)
+option(BUILD_03_Boost_Chrono  "Build boost precompiled library link demo" ON)
+
 ################################################################################
 # Source code Structuring guidelines
 # set (PROJECT_SOURCE_DECLARATION_DIR ${PROJECT_SOURCE_DIR}/include)
@@ -23,7 +28,7 @@ set (Boost_NO_SYSTEM_PATHS ON)
 set (Boost_USE_MULTITHREADED ON)
 set (Boost_USE_STATIC_LIBS ON)
 set (Boost_USE_STATIC_RUNTIME OFF)
-set (Boost_DEBUG ON)
+set (Boost_DEBUG OFF)
 set (BOOST_ALL_DYN_LINK ON)
 # For Windows set envirnoment variables as :
 # set (BOOST_ROOT "D:/boost_1_72_0")
@@ -64,22 +69,9 @@ else()
     include_directories ( "${EIGEN3_INCLUDE_DIR}" )
 endif()
 
-################################################################################
-# Target 1 Eigen and boost lambda test
-add_executable (${PROJECT_NAME} eigen.cpp)
-target_include_directories(${PROJECT_NAME} PUBLIC  ${Boost_INCLUDE_DIRS})
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_EXTENSIONS OFF)
-# target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
-# Link a target to libraries.
-target_link_libraries (${PROJECT_NAME} ${Boost_LIBRARIES})
-################################################################################
-# Target 2 Boost interprocess communication requires header only boost libraries
-add_executable (ShareMemory share_memory.cpp)
-target_link_libraries (ShareMemory ${Boost_LIBRARIES})
-################################################################################
-# Target 3 Requires compiled boost libraries
-# On windows linking needs administrative permissions
-# (since I'm using precompilede libraries)
-add_executable (BoostChrono boost_chrono.cpp)
-#target_include_directories(BoostChrono PUBLIC  ${Boost_INCLUDE_DIRS})
-target_link_libraries (BoostChrono ${Boost_LIBRARIES})
+
+
+# Build examples only if set on in ccmake
+if(Demo_BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
