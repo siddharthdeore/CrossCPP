@@ -9,7 +9,6 @@ Cross Platform C++ CMake toolchain boilerplate template with commonly used scien
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/siddharthdeore/CrossCPP?style=flat-square)
 
 
-[![Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer)
 ## Libraries 
 - [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 - [Boost C++ Libraries](https://www.boost.org/)
