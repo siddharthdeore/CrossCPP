@@ -2,9 +2,11 @@
 Cross Platform C++ CMake toolchain Boilerplate Template with commonly used scientific libraries.
 
 [![Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer)
-## Libraries
+## Libraries 
 - [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
 - [Boost C++ Libraries](https://www.boost.org/)
+
+
 ## Getting Started
 ```sh
 git clone https://github.com/siddharthdeore/CrossCPP.git
@@ -39,7 +41,47 @@ For detail build instruction refer [Boost Build Guide](https://www.boost.org/bui
 |BOOST_LIBRARYDIR    | "C:\Program Files\boost_1_76_0\stage\lib"|
 
 
+<<<<<<< HEAD
+## Proposed source code directory structure.
+```
+├───bin
+│   ├───Debug
+│   └───Release
+│
+├───build
+│
+├───utils
+│
+├───lib
+│   ├───my_lib_1
+│   │   ├───src
+│   │   └───include
+│   │   
+│   ├───my_lib_2
+│   |     :
+│   └───my_lib_n
+│
+├───Projects
+│
+├───examples
+│   ├───01_eigen
+│   ├───02_boost_header_only       
+│   └───03_boost_chrono
+│
+├───external
+│   ├───eigen
+│   ├───other_external_lib
+│   |     :
+│   └───fancy_library
+│
+└───CMakeLists.txt
+
+```
+
+# Maintainers
+=======
 ## Maintainers
+>>>>>>> f0186785e3c4770de11a9a84e2c188d92ad1c6fa
 This repository is maintained by:
 | [<img src="https://github.com/siddharthdeore.png" width="40">](https://github.com/siddharthdeore)| [@siddharthdeore](https://github.com/siddharthdeore)|
 --|--
