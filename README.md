@@ -39,7 +39,7 @@ For detail build instruction refer [Boost Build Guide](https://www.boost.org/bui
 |BOOST_LIBRARYDIR    | "C:\Program Files\boost_1_76_0\stage\lib"|
 
 
-# Maintainers
+## Maintainers
 This repository is maintained by:
 | [<img src="https://github.com/siddharthdeore.png" width="40">](https://github.com/siddharthdeore)| [@siddharthdeore](https://github.com/siddharthdeore)|
 --|--
