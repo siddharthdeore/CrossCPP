@@ -19,13 +19,17 @@ option(BUILD_03_Boost_Chrono  "Build boost precompiled library link demo" ON)
 # set (MAIN_FILE ${PROJECT_SOURCE_DEFINITION_DIR}/main.cc)
 # option settings for "CMake".
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
-#------------------------------------------------------------------------------#
 # include_directories (${PROJECT_SOURCE_DECLARATION_DIR})
+#------------------------------------------------------------------------------#
 
 
 #------------------------------------------------------------------------------#
 # CMake Modules
 #------------------------------------------------------------------------------#
+# Platform spesific instructions
+include(cmake/config_platform.cmake)
+# Compiler spesific instructions
+include(cmake/config_compiler.cmake)
 # Boost Library configration
 include(cmake/config_boost.cmake)
 # check and update git submodules
@@ -33,7 +37,6 @@ include(cmake/config_git_submodules.cmake)
 # fetch eigen with git submodule
 include(cmake/config_eigen.cmake)
 #------------------------------------------------------------------------------#
-
 
 #------------------------------------------------------------------------------#
 # Build Targets

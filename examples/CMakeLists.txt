@@ -11,10 +11,12 @@ if(BUILD_01_Eigen)
     target_link_libraries (EigenTest)
 endif()
 
+
 ################################################################################
 # Target 2 Boost interprocess communication requires header only boost libraries
 if(BUILD_02_Shared_Memory)
     add_executable (SharedMemory 02_boost_header_only/share_memory.cpp)
+    target_link_libraries (SharedMemory ${SYSTEM_LIB} )
 endif()
 
 

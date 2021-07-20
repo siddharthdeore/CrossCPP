@@ -1,7 +1,7 @@
 # Cross C++
 Cross Platform C++ CMake toolchain boilerplate template with commonly used scientific libraries.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width = "16"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Cmake.svg/900px-Cmake.svg.png" width = "16"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/NewTux.svg/800px-NewTux.svg.png" width ="16"> <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width = "16">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width = "16"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Cmake.svg/900px-Cmake.svg.png" width = "16"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/NewTux.svg/800px-NewTux.svg.png" width ="16"> <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_logo_-_2012.svg" width = "16"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/MacOS_logo_%282017%29.svg/512px-MacOS_logo_%282017%29.svg.png" width = "16">
 
 
 ![GitHub forks](https://img.shields.io/github/forks/siddharthdeore/CrossCPP?style=flat-square)
@@ -20,6 +20,17 @@ Cross Platform C++ CMake toolchain boilerplate template with commonly used scien
 sudo apt-get update
 sudo apt-get install libboost-all-dev
 ```
+---
+<b>MacOS</b>
+Boost can be installed on MacOS using macports
+```sh
+sudo port install boost 
+```
+or with homebrew
+```sh
+brew install boost
+```
+---
  <b>Windows</b>
   
  - Download boost source code from https://www.boost.org/users/download/
