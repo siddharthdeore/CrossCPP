@@ -54,12 +54,17 @@ For detail build instruction refer [Boost Build Guide](https://www.boost.org/bui
 # Build Instruction
 
 ```sh
-git clone https://github.com/siddharthdeore/CrossCPP.git
-cd CrossCPP
+git clone https://github.com/siddharthdeore/CrossCPP.git --depth 1 <your-reopo-name>
+cd <your-reopo-name>
 mkdir build
 cd build
 cmake ..
 ```
+Push project to remote repository
+```sh
+git commit --amend .
+```
+
 
 Proposed source code directory structure.
 ```sh
