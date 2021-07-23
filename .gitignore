@@ -47,3 +47,6 @@ _deps
 #
 bin
 build
+
+#
+.vscode
