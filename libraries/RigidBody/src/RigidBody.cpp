@@ -8,8 +8,11 @@ using namespace std;
 RigidBody::RigidBody()
 {
     _q.setIdentity();
-    _inertia.setIdentity();
-    _omega << 0.0,0.0,0.0;
+    _inertia << 1.0, 0.0, 0.0,
+                0.0, 1.0, 0.0,
+                0.0, 0.0, 1.0;
+
+    _omega << 0.0, 0.0, 0.0;
     _mass=0;
 	
 }
@@ -18,7 +21,9 @@ RigidBody::RigidBody()
 RigidBody::RigidBody(Quaterniond q,Vector3d omega)
 {
     _q = q;
-    _inertia.setIdentity();
+    _inertia << 1.0, 0.0, 0.0,
+                0.0, 1.0, 0.0,
+                0.0, 0.0, 1.0;
     _mass=0;
     _omega = omega;
 	
@@ -48,25 +53,25 @@ Vector3d RigidBody::getAngularVelocity()
 }
 
 void RigidBody::operator()(const state_type& x, state_type& dxdt, const double t) {
-    Quaterniond q(x[0],x[1],x[2],x[3]);
-    Vector3d w,dw;
-    w << x[4], x[5], x[6];
-    q = Rotations::velocity_quaternion(q,w);
-    Matrix3d SKW(3,3);
-    SKW = Rotations::getSkew(w);
-
+    Quaterniond q(x[0], x[1], x[2], x[3]);
+    q.normalize();
+    Vector3d w(x[4],x[5],x[6]);
+	// Quaternion Kinematics
+	Quaterniond dq = Rotations::velocity_quaternion(q,w);
+	// Angular momentum H = Jxw
     Vector3d H = this->_inertia*w;
-    dw = -SKW*H;
-    cout << H <<endl;
+	// Rigid Body Dymanics Jw_dot = w x (H)
+	Vector3d dw = - (Rotations::getSkew(w)*H);
+	dw = this->_inertia.inverse() * dw;
 
-    dxdt[0] = q.x();
-    dxdt[1] = q.y();
-    dxdt[2] = q.z();
-    dxdt[3] = q.w();
+    dxdt[0] = dq.w();
+    dxdt[1] = dq.x();
+    dxdt[2] = dq.y();
+    dxdt[3] = dq.z();
     
-    dxdt[1] = dw[0];
-    dxdt[2] = dw[1];
-    dxdt[3] = dw[2];
+    dxdt[4] = dw[0];
+    dxdt[5] = dw[1];
+    dxdt[6] = dw[2];
 
     // kinematics
     //q = Rotations::velocity_quaternion(x.q,x.omega);

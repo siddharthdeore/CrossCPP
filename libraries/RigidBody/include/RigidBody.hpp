@@ -32,7 +32,10 @@ class RigidBody
 		Matrix3d _inertia;
 		// body mass
 		double _mass;
-		
+		double Iyy = 1.0;
+		double Ixx = 1.0;
+		double Izz = 1.0;
+
 
 	public:
 
