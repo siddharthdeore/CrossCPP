@@ -73,11 +73,6 @@ void RigidBody::operator()(const state_type& x, state_type& dxdt, const double t
     dxdt[5] = dw[1];
     dxdt[6] = dw[2];
 
-    // kinematics
-    //q = Rotations::velocity_quaternion(x.q,x.omega);
-    // dynamics
-    //Vector3d H = this->_inertia*x.omega;
-    //dxdt.omega = -x.omega.cross(H);
 }
 
 std::ostream& operator<<(std::ostream& out, const RigidBody& Body) 

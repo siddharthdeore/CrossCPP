@@ -12,7 +12,7 @@ target_include_directories( ${PROJECT_NAME}
     PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
 
-target_link_libraries(${PROJECT_NAME} Rotations)
+target_link_libraries(${PROJECT_NAME} Rotations ${Boost_LIBRARIES})
 
 add_executable(Demo_${PROJECT_NAME} demo.cpp)
 target_link_libraries(Demo_${PROJECT_NAME} ${PROJECT_NAME} Rotations)
