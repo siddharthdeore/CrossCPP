@@ -106,7 +106,7 @@ Proposed source code directory structure.
 
 ```
 
-# Maintainers
+## Maintainers
 This repository is maintained by:
 |<img src="https://github.com/siddharthdeore.png" width="32">| [siddharth deore](https://github.com/siddharthdeore)|
 |--|--|
