@@ -69,7 +69,7 @@ namespace Rotations
     // get 4x4 Hat Map transformation A.K.A. skew symetric matrix of vector
     Matrix4d getSkew4(Vector3d vec) {
         Matrix4d S(4,4);
-        S <<    0.0,    -vec[2],  -vec[1],  vec[0],
+        S <<    0.0,    -vec[0],  -vec[1],  vec[2],
                 vec[0],     0.0,   vec[2], -vec[1],
                 vec[1], -vec[2],      0.0,  vec[0],
                 vec[2],  vec[1],  -vec[0],      0.0;
@@ -85,8 +85,8 @@ namespace Rotations
     Quaterniond velocity_quaternion(Quaterniond q, Vector3d vec){
         Matrix4d Omega(4,4);
         Omega = getSkew4(vec);
-        Vector4d qv(q.x(), q.y(), q.z(),q.w());
-        return Quaterniond(0.5 * Omega * qv);         
+        Vector4d qv(q.w(), q.x(), q.y(),q.z());
+        return Quaterniond(0.5 * (Omega * qv));         
     };
     
     

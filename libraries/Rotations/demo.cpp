@@ -20,7 +20,7 @@ int main(){
     cout << endl;
     cout << "Rotate Vector" << endl;
 
-    M = Rotations::rotateX(M_PI_2/3 ) * Rotations::rotateY(M_PI_2/2) * Rotations::rotateZ(M_PI_2);
+    M = Rotations::rotateX(1.570796 /3 ) * Rotations::rotateY(1.570796 /2) * Rotations::rotateZ(1.570796);
     cout << "Get Skew matrix of vector (1 2 3)" << endl;
     cout << M*vec << endl;
     cout << endl;
