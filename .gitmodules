@@ -1,3 +1,7 @@
 [submodule "external/eigen"]
 	path = external/eigen
 	url = https://gitlab.com/libeigen/eigen.git
+
+[submodule "external/NanoLog"]
+	path = external/NanoLog
+	url = https://github.com/PlatformLab/NanoLog.git
