@@ -11,7 +11,7 @@
 #include <iostream>
 
 #include "rotations.hpp"
-#include "RigidBody.hpp"
+#include "VSCMG.hpp"
 
 
 #include <boost/numeric/odeint.hpp>
@@ -22,7 +22,7 @@ typedef runge_kutta_cash_karp54< state_type > error_stepper_type;
 typedef controlled_runge_kutta< error_stepper_type > controlled_stepper_type;
 
 int main() {
-	RigidBody body;
+	VSCMG body;
 
 	Matrix3d I(3,3);
 	I << 1,0,0,

@@ -45,8 +45,8 @@ CTestTestfile.cmake
 _deps
 
 #
-bin
-build
+/bin/
+/build/
 
 #
-.vscode
+/.vscode/

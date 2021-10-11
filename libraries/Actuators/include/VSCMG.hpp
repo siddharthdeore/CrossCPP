@@ -1,5 +1,5 @@
-#ifndef RIGIDBODY_H
-#define RIGIDBODY_H
+#ifndef VSCMG_H
+#define VSCMG_H
 #ifdef _MSC_VER
 	#pragma once
 #endif
@@ -20,8 +20,8 @@ typedef struct state_type {
 	Vector3d omega;
 }state_type;
 */
-typedef boost::array< double , 7 > state_type;
-class RigidBody  
+typedef boost::array< double , 15 > state_type;
+class VSCMG  
 {
 	private:
 		// angular velocity (Body rate vector)
@@ -39,9 +39,9 @@ class RigidBody
 
 	public:
 
-		RigidBody();
-		RigidBody(Quaterniond,Vector3d);
-		~RigidBody();
+		VSCMG();
+		VSCMG(Quaterniond,Vector3d);
+		~VSCMG();
 
 		void setInertia(Matrix3d);
 		void setState(Quaterniond,Vector3d);
@@ -54,11 +54,11 @@ class RigidBody
 
 
 		// outstream operator for printing body parameters
-		friend std::ostream& operator<<(std::ostream& output, const RigidBody& Body);
+		friend std::ostream& operator<<(std::ostream& output, const VSCMG& Body);
 
 };
 
 //ostream operator is friend class, thus declared outside scope of base
-std::ostream& operator<<(std::ostream& output, const RigidBody& Body);
+std::ostream& operator<<(std::ostream& output, const VSCMG& Body);
 
 #endif

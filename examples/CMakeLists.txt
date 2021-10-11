@@ -30,15 +30,14 @@
 ################################################################################
 # Target 4 Example of shared own libraries
 # if(BUILD_04_Rigid_Body)
-add_executable (example_RigidBody 04_Rigid_Body/rigid_body.cpp)
-#target_include_directories(example_RigidBody PUBLIC  ${Boost_INCLUDE_DIRS})
-target_link_libraries (example_RigidBody RigidBody)
+add_executable (example_VSCMG 04_VSCMG/vscmg.cpp)
+#target_include_directories(example_VSCMG PUBLIC  ${Boost_INCLUDE_DIRS})
+target_link_libraries (example_VSCMG VSCMG)
 # endif()
 
 ################################################################################
 # Target 5 Example of shared own libraries
 # if(BUILD_05_Rigid_Body)
 add_executable (example_Timer 05_timer/timer_test.cpp)
-#target_include_directories(example_RigidBody PUBLIC  ${Boost_INCLUDE_DIRS})
-target_link_libraries (example_Timer ${Boost_LIBRARIES})
+target_link_libraries (example_Timer pthread rt)
 # endif()

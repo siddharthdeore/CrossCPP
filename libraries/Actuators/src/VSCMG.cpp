@@ -1,11 +1,11 @@
-#include "RigidBody.hpp"  
+#include "VSCMG.hpp"  
 #include "rotations.hpp"
 
 #include <iostream>
 using namespace std;	
 
 // Rigid body constructor
-RigidBody::RigidBody()
+VSCMG::VSCMG()
 {
     _q.setIdentity();
     _inertia << 1.0, 0.0, 0.0,
@@ -18,7 +18,7 @@ RigidBody::RigidBody()
 }
 
 // Rigid body constructor with initial states
-RigidBody::RigidBody(Quaterniond q,Vector3d omega)
+VSCMG::VSCMG(Quaterniond q,Vector3d omega)
 {
     _q = q;
     _inertia << 1.0, 0.0, 0.0,
@@ -29,30 +29,30 @@ RigidBody::RigidBody(Quaterniond q,Vector3d omega)
 	
 }
 	
-RigidBody::~RigidBody()
+VSCMG::~VSCMG()
 {
 	
 }
 
-void RigidBody::setInertia(Matrix3d inertia)
+void VSCMG::setInertia(Matrix3d inertia)
 {
     _inertia = inertia;
 }
-void RigidBody::setState(Quaterniond q,Vector3d omega)
+void VSCMG::setState(Quaterniond q,Vector3d omega)
 {
     _q=q;
     _omega=omega;
 }
-Quaterniond RigidBody::getQuaternion()
+Quaterniond VSCMG::getQuaternion()
 {
     return _q;
 }
-Vector3d RigidBody::getAngularVelocity()
+Vector3d VSCMG::getAngularVelocity()
 {
     return _omega;
 }
 
-void RigidBody::operator()(const state_type& x, state_type& dxdt, const double t) {
+void VSCMG::operator()(const state_type& x, state_type& dxdt, const double t) {
     Quaterniond q(x[0], x[1], x[2], x[3]);
     q.normalize();
     Vector3d w(x[4],x[5],x[6]);
@@ -75,7 +75,7 @@ void RigidBody::operator()(const state_type& x, state_type& dxdt, const double t
 
 }
 
-std::ostream& operator<<(std::ostream& out, const RigidBody& Body) 
+std::ostream& operator<<(std::ostream& out, const VSCMG& Body) 
 {
     out << "Inertia (kg m^2) : \n" << Body._inertia << std::endl;
     out << "Mass (kg) \t: " << Body._mass << std::endl;

@@ -11,14 +11,14 @@
 #include <iostream>
 
 #include "rotations.hpp"
-#include "RigidBody.hpp"
+#include "VSCMG.hpp"
 
 
 
 using namespace std;
 using namespace Eigen;
 int main(){
-    RigidBody body;
+    VSCMG body;
 
     cout << body.getQuaternion() << endl;
     cout << body.getAngularVelocity() << endl;
